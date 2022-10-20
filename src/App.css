@@ -56,6 +56,9 @@ li {
 .left-align {
   text-align: left;
 }
+.note {
+  font-size: 13px;
+}
 
 .searchLine {
   width: 80%;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Search() {
   const [city, setCity] = useState("");
@@ -13,6 +14,7 @@ export default function Search() {
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       description: response.data.weather[0].description,
     });
@@ -48,6 +50,8 @@ export default function Search() {
           Current temperature in {weather.city.toUpperCase()} is:{" "}
           {Math.round(weather.temperature)} <a href=" ">°C</a>|
           <a href=" ">°F</a>
+          <br />
+          <FormattedDate date={weather.date} />
         </p>
         <div className="row">
           <div className="col-md-6 col-sm-6">
