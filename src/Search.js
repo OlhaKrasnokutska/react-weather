@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function Search() {
   const [city, setCity] = useState("");
@@ -47,9 +48,8 @@ export default function Search() {
       <div className="container">
         {form}
         <p className="currentPlace">
-          Current temperature in {weather.city.toUpperCase()} is:{" "}
-          {Math.round(weather.temperature)} <a href=" ">°C</a>|
-          <a href=" ">°F</a>
+          Current temperature in {weather.city.toUpperCase()} is:
+          <WeatherTemperature celsius={weather.temperature} />
           <br />
           <FormattedDate date={weather.date} />
         </p>
