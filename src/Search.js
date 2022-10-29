@@ -11,20 +11,20 @@ export default function Search() {
   function displayWeather(response) {
     setLoaded(true);
     setWeather({
-      city: response.data.name,
-      temperature: response.data.main.temp,
+      city: response.data.city,
+      temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
-      humidity: response.data.main.humidity,
-      date: new Date(response.data.dt * 1000),
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      description: response.data.weather[0].description,
+      humidity: response.data.temperature.humidity,
+      date: new Date(response.data.time * 1000),
+      icon: `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      description: response.data.condition.description,
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "7497a8195f7315d98b24229058ab6f42";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiKey = "28ae48tbf6e9169de4of202670faef34";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
   }
 
@@ -35,11 +35,11 @@ export default function Search() {
     <form onSubmit={handleSubmit}>
       <input
         type="search"
-        class="searchLine"
+        className="searchLine"
         placeholder="Please, type a city"
         onChange={updateCity}
       />
-      <input type="submit" class="searchButton" value="Search" />
+      <input type="submit" className="searchButton" value="Search" />
     </form>
   );
 
