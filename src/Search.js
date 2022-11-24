@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import Forecast from "./Forecast";
 
 export default function Search() {
   const [city, setCity] = useState("");
@@ -11,6 +12,8 @@ export default function Search() {
   function displayWeather(response) {
     setLoaded(true);
     setWeather({
+      ready: true,
+      coordinates: response.data.coordinates,
       city: response.data.city,
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
@@ -47,12 +50,12 @@ export default function Search() {
     return (
       <div className="container">
         {form}
-        <p className="currentPlace">
+        <div className="currentPlace">
           Current temperature in {weather.city.toUpperCase()} is:
           <WeatherTemperature celsius={weather.temperature} />
           <br />
           <FormattedDate date={weather.date} />
-        </p>
+        </div>
         <div className="row">
           <div className="col-md-6 col-sm-6">
             <img src={weather.icon} alt={weather.description} />
@@ -66,6 +69,7 @@ export default function Search() {
             </ul>
           </div>
         </div>
+        <Forecast coordinates={weather.coordinates} />
       </div>
     );
   } else {
