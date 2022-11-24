@@ -11,6 +11,11 @@ export default function ForecastDay(props) {
     return `${temperature}°`;
   }
 
+  function icon() {
+    let iconUrl = `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${props.data.daily[0].condition.icon}.png`;
+    return iconUrl;
+  }
+
   function day() {
     let date = new Date(props.data.daily[0].time * 1000);
     let day = date.getDay();
@@ -21,9 +26,9 @@ export default function ForecastDay(props) {
   }
 
   return (
-    <div>
+    <div className="center">
       <div>{day()}</div>
-      <div>😥</div>
+      <img src={icon()} alt="icon" className="forecast-icon" />
       <div>{maxTemp()}</div>
       <div>{minTemp()}</div>
     </div>
