@@ -58,7 +58,11 @@ export default function Search() {
         </div>
         <div className="row">
           <div className="col-md-6 col-sm-6">
-            <img src={weather.icon} alt={weather.description} />
+            <img
+              src={weather.icon}
+              alt={weather.description}
+              className="weather-icon"
+            />
           </div>
 
           <div className="col-md-6 col-sm-12 left-align">

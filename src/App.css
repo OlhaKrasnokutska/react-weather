@@ -16,6 +16,10 @@ li {
   padding: 0 20px;
 }
 
+ul {
+  margin-top: 15px;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -78,6 +82,10 @@ li {
   color: white;
   border: 2px solid white;
   margin: 0px 2px;
+}
+
+.weather-icon {
+  width: 120px;
 }
 
 ::placeholder {

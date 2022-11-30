@@ -7,7 +7,7 @@ export default function Forecast(props) {
   let [forecast, setForecast] = useState(null);
 
   function handleResponse(response) {
-    setForecast(response.data);
+    setForecast(response.data.daily);
     setLoaded(true);
 
     console.log(response.data);
@@ -16,9 +16,17 @@ export default function Forecast(props) {
   if (loaded) {
     return (
       <div className="row">
-        <div className="col-1 card">
-          <ForecastDay data={forecast} />
-        </div>
+        {forecast.map(function (dailyForecast, index) {
+          if (index < 6) {
+            return (
+              <div className="col-1 card">
+                <ForecastDay data={dailyForecast} />
+              </div>
+            );
+          } else {
+            return null;
+          }
+        })}
       </div>
     );
   } else {
