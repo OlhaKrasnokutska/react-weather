@@ -1,7 +1,7 @@
 body {
   box-sizing: border-box;
-  margin: 35px auto 20%;
-  background: linear-gradient(to top, #09203f 0%, #537895 100%);
+  margin: 5% auto 40%;
+  background: linear-gradient(to bottom, #072344 5%, #7ba4c3 80%);
   text-align: center;
   font-size: 20px;
 }
