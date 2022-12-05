@@ -58,7 +58,7 @@ export default function Search() {
           <FormattedDate date={weather.date} />
         </div>
         <div className="row">
-          <div className="col-md-6 col-sm-6">
+          <div className="col-lg-6 col-md-6 col-sm-3">
             <img
               src={weather.icon}
               alt={weather.description}
@@ -66,7 +66,7 @@ export default function Search() {
             />
           </div>
 
-          <div className="col-md-6 col-sm-12 left-align">
+          <div className="col-lg-6 col-md-6 col-sm-3 left-align">
             <ul>
               <li>Humidity: {weather.humidity} %</li>
               <li>Wind: {weather.wind} km/h</li>

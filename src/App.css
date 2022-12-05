@@ -95,7 +95,3 @@ ul {
 :-ms-input-placeholder {
   color: white;
 }
-
-:::-ms-input-placeholder {
-  color: white;
-}
